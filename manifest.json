@@ -1,0 +1,8 @@
+{
+  "name": "FetchUnknownUsers",
+  "version": "1.0.0",
+  "description": "Форсированно прогружает пользователей в упоминании",
+  "author": ")",
+  "license": "MIT",
+  "dependencies": []
+}
