@@ -14,9 +14,10 @@ module.exports = class FetchUnknownUsers extends Plugin {
         const Mention = await getModule(m => m.default && m.default.displayName == "Mention");
 
         inject("fetch-unknown-users", Mention, "default", function (args) {
-            if (args[0] && args[0].children && args[0].children[0]
+            if (args[0]?.children?.[0]&&typeof args[0].children[0] === "string"
                 && getIdFromMention(args[0].children[0])) {
                 const id = getIdFromMention(args[0].children[0]);
+                if(!id) return args;
                 getUser(id).then((user) => {
                     if (user) {
                         args[0].children[0] = `@${user.username}`;
